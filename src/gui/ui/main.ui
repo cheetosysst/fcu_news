@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Microsoft JhengHei UI</family>
+    <pointsize>20</pointsize>
+    <weight>75</weight>
+    <bold>true</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>FCU_NEWS</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: #212121</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>10</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="title">
+        <property name="font">
+         <font>
+          <family>Microsoft JhengHei UI</family>
+          <pointsize>28</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #eee</string>
+        </property>
+        <property name="text">
+         <string>FCU News</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="font">
+         <font>
+          <family>Microsoft JhengHei UI</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QTabWidget::pane {
+  border: none;
+  top:-1px; 
+  background: #333;
+} 
+
+QTabBar::tab {
+  color: #eee;
+  background: #272727;; 
+  border: none; 
+  padding: 5px;
+  margin-right: 5px;
+} 
+
+QTabBar::tab:hover {
+  cursor: pointer !important;
+}
+
+QTabBar::tab:selected { 
+  color: #eee;
+  background: #333; 
+  margin-bottom: -1px; 
+}
+
+QTabBar::tab:selected:hover {
+  cursor: default;
+}</string>
+        </property>
+        <property name="tabShape">
+         <enum>QTabWidget::Rounded</enum>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <property name="elideMode">
+         <enum>Qt::ElideNone</enum>
+        </property>
+        <property name="usesScrollButtons">
+         <bool>false</bool>
+        </property>
+        <widget class="QWidget" name="tab_news">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="font">
+          <font>
+           <kerning>false</kerning>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: #333</string>
+         </property>
+         <attribute name="title">
+          <string>校園新聞</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QListView" name="list_news">
+            <property name="styleSheet">
+             <string notr="true">QListView {
+    show-decoration-selected: 1; /* make the selection span the entire width of the view */
+}
+
+QListView::item:alternate {
+    background: #EEEEEE;
+}
+
+QListView::item:selected {
+    border: 1px solid #6a6ea9;
+}
+
+QListView::item:selected:!active {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #ABAFE5, stop: 1 #8588B2);
+}
+
+QListView::item:selected:active {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #6a6ea9, stop: 1 #888dd9);
+}
+
+QListView::item:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #FAFBFE, stop: 1 #DCDEF1);
+}</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_announcement">
+         <property name="styleSheet">
+          <string notr="true">background: #333</string>
+         </property>
+         <attribute name="title">
+          <string>校園公告</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QListView" name="list_announcement">
+            <property name="styleSheet">
+             <string notr="true">border: none</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_activity">
+         <property name="styleSheet">
+          <string notr="true">background: #333</string>
+         </property>
+         <attribute name="title">
+          <string>校園活動</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QListView" name="list_activity">
+            <property name="styleSheet">
+             <string notr="true">border: none</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_talks">
+         <property name="styleSheet">
+          <string notr="true">background: #333</string>
+         </property>
+         <attribute name="title">
+          <string>校園演講</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QListView" name="list_talks">
+            <property name="styleSheet">
+             <string notr="true">border: none</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

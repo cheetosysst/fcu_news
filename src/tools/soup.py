@@ -3,8 +3,9 @@ import requests
 import re
 
 class soup:
-	def __init__(self):
-		print("[] soup init")
+	def __init__(self, debug=False):
+		if debug:
+			print("[soup.py] debug=True")
 
 
 	def getContent(self, url):
