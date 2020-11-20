@@ -18,3 +18,6 @@ class Ui(QtWidgets.QMainWindow):
 			i.setModel(model)
 		# print(self.title)
 
+	def updateContent(self, page):
+		print()
+
