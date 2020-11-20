@@ -1,42 +1,38 @@
 from bs4 import BeautifulSoup
+import requests
+import re
 
-class bsoup():
-	def bsoup(self):
-		self.html = ""
-		self.soup = ""
-	
-	def parseRaw(self, html):
-		self.html = html
+class soup:
+	def __init__(self):
+		print("[] soup init")
 
-	def getRaw(self):
-		return self.html
 
-	def processRaw(self):
-		self.soup = BeautifulSoup(self.html, 'html.parser')
+	def getContent(self, url):
+		raw = requests.get(url)
+		html = BeautifulSoup(raw.text, 'html.parser')
+		content = html.find("td", {"class": "leftblock"})
+		# print(content.text)
+		return content
 
-	def getPrettify(self):
-		return self.soup.prettify()
-
-	def getDataLegacy(self):
-		# resAll = self.soup.find_all("td")
-		resDate = self.soup.findAll("td", {"class": "nt_date"})
-		resSubject = self.soup.findAll("a", {"title": "查看公告內容"})
-		resCategory = self.soup.findAll("td", {"class": "nt_category"})
-		resUnit = self.soup.findAll("td", {"class": "nt_unit"})
-		resView = self.soup.findAll("td", {"class": "nt_view"})
-		resUrl = []
-		for a in self.soup.findAll("a", {"title": "查看公告內容"}):
-			resUrl.append(a["href"])
+	def getArticle(self, url):		
+		raw = requests.get(url)
+		html = BeautifulSoup(raw.text, 'html.parser')
 		data = []
-		for i in range(15):
+		title = html.findAll("td", {"class": "title"})
+		date = html.findAll("td", text=re.compile("([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))"))
+		# url = self.html.find("td", {"class": "title"}).findChildren("a", recursive=False)
+		url = ["http://news.fcu.edu.tw/wSite/"+i.findChildren("a", recursive=False)[0]["href"] for i in title]
+		content = []
+		for i in url:
+			# print(i)
+			content.append(self.getContent(i))
+		
+		# print(url)
+		for i in range(45):
 			data.append({
-				"date": resDate[i].text,
-				"category": resCategory[i].text,
-				"unit": resUnit[i].text,
-				"view": resView[i].text,
-				"urgent": True if "急件" in resSubject[i].text else False,
-				"important": True if "重要" in resSubject[i].text else False,
-				"subject": resSubject[i].text,
-				"url": resUrl[i]
-				})
+				"title": title[i].text,
+				"date": date[i].text,
+				"url": url[i],
+				"content": content[i]
+			})
 		return data
