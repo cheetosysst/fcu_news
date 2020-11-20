@@ -22,11 +22,11 @@ class soup:
 		title = html.findAll("td", {"class": "title"})
 		date = html.findAll("td", text=re.compile("([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))"))
 		# url = self.html.find("td", {"class": "title"}).findChildren("a", recursive=False)
-		url = ["http://news.fcu.edu.tw/wSite/"+i.findChildren("a", recursive=False)[0]["href"] for i in title]
-		content = []
-		for i in url:
-			# print(i)
-			content.append(self.getContent(i))
+		# url = ["http://news.fcu.edu.tw/wSite/"+i.findChildren("a", recursive=False)[0]["href"] for i in title]
+		# content = []
+		# for i in url:
+		# 	# print(i)
+		# 	content.append(self.getContent(i))
 		
 		# print(url)
 		for i in range(45):
@@ -34,6 +34,5 @@ class soup:
 				"title": title[i].text,
 				"date": date[i].text,
 				"url": url[i],
-				"content": content[i]
 			})
 		return data
