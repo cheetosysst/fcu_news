@@ -6,7 +6,6 @@ from tools.soup import soup
 from pprint import pprint
 
 soup = soup()
-url = "http://news.fcu.edu.tw/wSite/lp?ctNode=14980&mp=9000&nowPage=1&pagesize=45"
 
 class Ui(QtWidgets.QMainWindow):
 	def __init__(self, debug=False):
@@ -15,50 +14,32 @@ class Ui(QtWidgets.QMainWindow):
 		self.show()
 		self.tab = self.findChild(QtWidgets.QTabWidget, 'tabWidget')
 		self.tabs = self.tab.findChildren(QtWidgets.QListView)
+		self.pageData = []
 
-		print("[views] updating tab#3")
-		model = QStandardItemModel()
-		for i in self.updateContent(0):
-			model.appendRow(QStandardItem(i["title"]))
-			print(i["title"])
-		self.tabs[3].setModel(model)
+		for t in range(4):
+			print("[views] updating tab#",t)
+			model = QStandardItemModel()
+			self.pageData = self.updateContent(t)
+			for i in self.pageData:
+				model.appendRow(QStandardItem(i["title"]))
+			self.tabs[t].setModel(model)
+			self.tabs[t].setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+			self.tabs[t].clicked.connect(self.clicked)
 
-		model = QStandardItemModel()
-		for i in self.updateContent(1):
-			model.appendRow(QStandardItem(i["title"]))
-			print(i["title"])
-		self.tabs[2].setModel(model)
-
-		model = QStandardItemModel()
-		for i in self.updateContent(2):
-			model.appendRow(QStandardItem(i["title"]))
-			print(i["title"])
-		self.tabs[1].setModel(model)
-
-		model = QStandardItemModel()
-		for i in self.updateContent(3):
-			model.appendRow(QStandardItem(i["title"]))
-			print(i["title"])
-		self.tabs[0].setModel(model)
-		
-
-		# for i in self.tabs:
-		# 	# for page in range(4):
-		# 	# 	data = self.updateContent(page)
-		# 	model = QStandardItemModel()
-		# 	model.appendRow(QStandardItem('item'))
-		# 	i.setModel(model)
+	def clicked(self,qModelIndex):
+		QtWidgets.QMessageBox.information(self,'ListWidget'," ".join(soup.getContent(self.pageData[qModelIndex.row()]["url"]).split("\t")))
 
 	def updateContent(self, page, pageNum=1):
 		self.tab = self.findChild(QtWidgets.QTabWidget, 'tabWidget')
 		self.tabs = self.tab.findChildren(QtWidgets.QListView)
 
 		urlList = [
-			15360,
-			14980,
+			15362,
 			15361,
-			15362
+			14980,
+			15360
 		]
+
 		url = "http://news.fcu.edu.tw/wSite/lp?ctNode="+str(urlList[page])+"&mp=9000&nowPage="+str(pageNum)+"&pagesize=45"
 		
 		data = soup.getArticle(url)
