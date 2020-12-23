@@ -202,6 +202,12 @@ QListView::item:hover {
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
            <widget class="QListView" name="list_announcement">
+            <property name="font">
+             <font>
+              <family>微軟正黑體</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">QListView {
 	border: none;
@@ -254,6 +260,12 @@ QListView::item:hover {
          <layout class="QVBoxLayout" name="verticalLayout_5">
           <item>
            <widget class="QListView" name="list_activity">
+            <property name="font">
+             <font>
+              <family>微軟正黑體</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">QListView {
 	border: none;
