@@ -8,9 +8,10 @@ from pprint import pprint
 soup = soup()
 
 class Ui(QtWidgets.QMainWindow):
-	def __init__(self, debug=False):
+	def __init__(self, sWidth=800, sHeight=600, debug=False):
 		super(Ui, self).__init__() 
 		uic.loadUi(path.join(path.dirname(path.abspath(__file__)),'ui','main.ui'), self)
+		self.resize(sWidth, sHeight)
 		self.show()
 		self.tab = self.findChild(QtWidgets.QTabWidget, 'tabWidget')
 		self.tabs = self.tab.findChildren(QtWidgets.QListView)

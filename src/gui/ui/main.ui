@@ -138,14 +138,18 @@ QTabBar::tab:selected:hover {
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
            <widget class="QListView" name="list_news">
+            <property name="font">
+             <font>
+              <family>微軟正黑體</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">QListView {
 	border: none;
-	font-size: 18px;
 }
 
 QListView::item {
-	font-size: 18px;
 	color: #eee
 }
 
@@ -201,11 +205,9 @@ QListView::item:hover {
             <property name="styleSheet">
              <string notr="true">QListView {
 	border: none;
-	font-size: 18px;
 }
 
 QListView::item {
-	font-size: 18px;
 	color: #eee
 }
 
@@ -255,11 +257,9 @@ QListView::item:hover {
             <property name="styleSheet">
              <string notr="true">QListView {
 	border: none;
-	font-size: 18px;
 }
 
 QListView::item {
-	font-size: 18px;
 	color: #eee
 }
 
@@ -306,14 +306,18 @@ QListView::item:hover {
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <widget class="QListView" name="list_talks">
+            <property name="font">
+             <font>
+              <family>微軟正黑體</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">QListView {
 	border: none;
-	font-size: 18px;
 }
 
 QListView::item {
-	font-size: 18px;
 	color: #eee
 }
 
