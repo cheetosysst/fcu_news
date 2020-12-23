@@ -140,7 +140,7 @@ QTabBar::tab:selected:hover {
            <widget class="QListView" name="list_news">
             <property name="font">
              <font>
-              <family>微軟正黑體</family>
+              <family>Microsoft JhengHei UI</family>
               <pointsize>14</pointsize>
              </font>
             </property>
@@ -204,7 +204,7 @@ QListView::item:hover {
            <widget class="QListView" name="list_announcement">
             <property name="font">
              <font>
-              <family>微軟正黑體</family>
+              <family>Microsoft JhengHei UI</family>
               <pointsize>14</pointsize>
              </font>
             </property>
@@ -262,7 +262,7 @@ QListView::item:hover {
            <widget class="QListView" name="list_activity">
             <property name="font">
              <font>
-              <family>微軟正黑體</family>
+              <family>Microsoft JhengHei</family>
               <pointsize>14</pointsize>
              </font>
             </property>
@@ -320,7 +320,7 @@ QListView::item:hover {
            <widget class="QListView" name="list_talks">
             <property name="font">
              <font>
-              <family>微軟正黑體</family>
+              <family>Microsoft JhengHei UI</family>
               <pointsize>14</pointsize>
              </font>
             </property>
