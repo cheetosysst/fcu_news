@@ -15,5 +15,9 @@ pip install -r requirements.txt
 python ./src/main.py
 ```
 
+## 開發 Development
+(開發計畫)[https://www.notion.so/f3f77539bbaf4f3ea1aaa262221d4e52]
+如果你有意協助開發這個小程式的話，這裡是我目前希望做到的功能，歡迎提出建議或是發 PR。
+
 ## License
 見 [LICENSE](LICENSE)
